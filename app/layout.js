@@ -1,15 +1,20 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import LenisSmooth from "@/components/LenisSmooth";
 import "./globals.css";
+import { Poppins, Bebas_Neue } from "next/font/google";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
   subsets: ["latin"],
-});
+  weight: ["400", "500", "700"],
+  variable: "--font-poppins",
+})
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const bebas_neue = Bebas_Neue({
+  variable: "--font-bebas-neue",
+  weight: ["400"],
+})
+
 
 export const metadata = {
   title: "Create Next App",
@@ -18,11 +23,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="en" suppressHydrationWarning={true}>
+      <body className={`${poppins.variable} ${bebas_neue.variable} ${poppins.className} antialiased`}>
+        <LenisSmooth />
+        <main className="relative">
+          {/* <Navbar /> */}
+          {children}
+          <Footer />
+        </main>
       </body>
     </html>
   );
