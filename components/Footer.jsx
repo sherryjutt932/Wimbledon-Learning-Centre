@@ -73,7 +73,7 @@ const Footer = () => {
               className={`w-20 sm:w-24 max-sm:mx-auto rounded-lg`}
             />
           </Link>
-          <div className="flex-1 flex max-sm:flex-col flex-grow gap-1 sm:gap-8 whitespace-nowrap w-fit">
+          <div className="flex-1 flex max-sm:flex-col flex-grow gap-8 whitespace-nowrap w-fit">
             {Links.map((item, index) => {
               return (
                 <div
@@ -109,7 +109,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t py-2 sm:py-4 border-[#333]">
-          <div className="maxWSec max-sm:pb-8 text-sm sm:text-base flex flex-wrap justify-between items-center relative px-4">
+          <div className="maxWSec max-sm:pb-8 text-sm sm:text-base flex flex-wrap justify-between items-center max-sm:flex-col relative px-4">
             <div className="max-md:py-2 flex gap-1 sm:gap-4 items-center text-base">
               © 2025 Wimbledon Learning Centre
             </div>

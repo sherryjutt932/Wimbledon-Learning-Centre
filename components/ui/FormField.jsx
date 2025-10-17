@@ -30,7 +30,7 @@ const FormField = ({
           name={name}
           placeholder={placeholder}
           rows={10}
-          className="!outline-none w-full px-2 py-1 sm:py-3 rounded-lg placeholder-gray-400 focus:outline-none border border-black/30 focus:ring-2 focus:ring-main transition text-xs sm:text-sm"
+          className="!outline-none w-full px-2 py-2 sm:py-3 rounded-lg placeholder-gray-400 focus:outline-none border border-black/30 focus:ring-2 focus:ring-main transition text-xs sm:text-sm"
           value={value}
           onChange={onChange}
           required={required}
@@ -41,7 +41,7 @@ const FormField = ({
           name={name}
           value={value}
           onChange={onChange}
-          className="!outline-none focus:border-cDark4 bg-cDark border border-cBorder rounded-md px-4 py-3 text-base"
+          className="!outline-none focus:border-cDark4 bg-cDark border border-cBorder rounded-md px-4 py-2 sm:py-3 text-base"
           required={required}
           {...props}
         >
@@ -59,7 +59,7 @@ const FormField = ({
           type="text"
           name={name}
           placeholder={placeholder}
-          className="!outline-none w-full px-2 py-1 sm:py-3 rounded-lg placeholder-gray-400 focus:outline-none border border-black/30 focus:ring-2 focus:ring-main transition text-xs sm:text-sm"
+          className="!outline-none w-full px-2 py-2 sm:py-3 rounded-lg placeholder-gray-400 focus:outline-none border border-black/30 focus:ring-2 focus:ring-main transition text-xs sm:text-sm"
           value={value}
           onChange={onChange}
           required={required}

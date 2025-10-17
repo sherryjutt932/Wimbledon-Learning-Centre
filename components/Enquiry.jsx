@@ -6,6 +6,7 @@ import FormField from "./ui/FormField";
 import { Send } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Clock, ChevronDown } from "lucide-react";
+import ZohoForm from "./ui/EnquiryForm";
 
 const OpeningHours = () => {
   const [expanded, setExpanded] = useState(true);
@@ -120,7 +121,7 @@ const Form = () => {
   };
 
   return (
-    <section className="maxWSec flex-1 px-6 py-6 flex flex-col gap-8">
+    <section className="lg:maxWSec flex-1 px-6 py-6 flex flex-col gap-8">
       <div className="text-center">
         <h4 className="leading-normal h4">Contact us!</h4>
         <p className="text-gray-600 text-sm">if you need more information</p>
@@ -149,7 +150,7 @@ const Form = () => {
         <FormField
           label="Full Name"
           name="fullName"
-          placeholder="e.g. Abdullah Malik"
+          placeholder="e.g. John Doe"
           value={formData.fullName}
           onChange={handleChange}
           required
@@ -159,7 +160,7 @@ const Form = () => {
         <FormField
           label="Email"
           name="email"
-          placeholder="e.g. abdullahmalik@example.com"
+          placeholder="e.g. johndoe@example.com"
           value={formData.email}
           onChange={handleChange}
           required
@@ -197,41 +198,44 @@ const Form = () => {
 
 const Enquiry = () => {
   return (
-    <section className="p-sec ">
-      <div className="maxWSec mx-auto ">
-        <h2 className="font-bebas h2 mb-8 text-center">
-          Have an <span className="text-main">Enquiry?</span>
-        </h2>
-        <div className="flex gap-6">
-          {/* Detail */}
-          <div className="flex-1 px-6 py-6 flex flex-col gap-8 items-center text-center">
-            <div>
-              <h4 className="h4">Let us help!</h4>
-              <p className="text-gray-600 mt-1 max-w-[54ch] text-sm">
-                If you're unsure about what type of tuition will work best for
-                you, just tell us a little more about your needs. We will get
-                back to you as soon as possible with the answers you need!
-              </p>
+    <>
+      {/* <ZohoForm /> */}
+      <section className="p-sec sm:!pt-0">
+        <div className="maxWSec mx-auto ">
+          <h2 className="font-bebas h2 sm:mb-8 text-center">
+            Have an <span className="text-main">Enquiry?</span>
+          </h2>
+          <div className="flex max-lg:flex-col sm:gap-6">
+            {/* Detail */}
+            <div className="flex-1 px-6 py-6 flex flex-col gap-8 items-center text-center">
+              <div>
+                <h4 className="h4">Let us help!</h4>
+                <p className="text-gray-600 mt-1 max-w-[54ch] text-sm">
+                  If you're unsure about what type of tuition will work best for
+                  you, just tell us a little more about your needs. We will get
+                  back to you as soon as possible with the answers you need!
+                </p>
+              </div>
+              <div>
+                <h4 className="h4">Wimbledon Learning Centre</h4>
+                <p className="text-gray-600 mt-1 max-w-[54ch] text-sm">
+                  hello@wimbledonlearningcentre.com
+                </p>
+              </div>
+
+              <OpeningHours />
             </div>
-            <div>
-              <h4 className="h4">Wimbledon Learning Centre</h4>
-              <p className="text-gray-600 mt-1 max-w-[54ch] text-sm">
-                hello@wimbledonlearningcentre.com
-              </p>
+
+            <div className="max-lg:hidden w-px min-h-full py-12">
+              <div className="w-full h-full bg-main/20"></div>
             </div>
 
-            <OpeningHours />
+            {/* Form */}
+            <Form />
           </div>
-
-          <div className="w-px min-h-full py-12">
-            <div className="w-full h-full bg-main/20"></div>
-          </div>
-
-          {/* Form */}
-          <Form />
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

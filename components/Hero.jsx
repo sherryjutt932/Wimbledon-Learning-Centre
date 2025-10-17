@@ -14,7 +14,7 @@ import { Highlighter } from "./ui/highlighter";
 const Hero = () => {
   return (
     <header
-      className={`p-4 flex h-[calc(100vh-0rem)] max-h-[calc(890px-0rem)] sm:max-h-[calc(1080px-0rem)]`}
+      className={`p-4 flex h-[calc(100svh-0rem)] max-h-[calc(890px-0rem)] sm:max-h-[calc(980px-0rem)]`}
     >
       <div className="maxW flex relative flex-1">
         <Image
@@ -26,7 +26,7 @@ const Hero = () => {
         />
         <div className="bg-gradient-to-t from-black to-black/0 absolute z-[3] bottom-0 left-0 h-[30%] w-full opacity-50 rounded-b-2xl"></div>
         <section className="relative bg-black/30 z-10 flex-1 flex flex-col items-center justify-center rounded-2xl">
-          <div className="w-28 absolute left-0 top-0 rounded-br-2xl bg-background p-2">
+          <div className="w-28 absolute left-0 top-0 rounded-br-2xl bg-background pr-2 pb-2">
             <Image
               aria-hidden
               src="/logo.png"
@@ -75,21 +75,29 @@ const Hero = () => {
           </main>
 
           {/* bottom links */}
-          <aside className="text-xs lg:text-sm text-gray-400 absolute bottom-0 left-0 right-0 flex items-center px-4 py-1 flex-wrap">
+          <aside className="text-xs lg:text-sm text-gray-400 absolute bottom-0 left-0 right-0 flex items-center justify-between px-6 md:px-4 py-1 max-md:flex-col-reverse md:flex-wrap">
             {/* Email */}
             <Link
               href="mailto:hello@wimbledonlearningcentre.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center"
             >
               <LinkEffect icon={Mail}>
                 hello@wimbledonlearningcentre.com
               </LinkEffect>
             </Link>
 
+            {/* Phone */}
+            <Link
+              href="tel:02081172803"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkEffect icon={Phone}>0208 117 2803</LinkEffect>
+            </Link>
+
             {/* Open Hours */}
-            <div className="absolute left-1/2 -top-2 lg:top-1/2 -translate-1/2 whitespace-nowrap flex justify-center items-center gap-2 w-fit">
+            <div className="absolute left-1/2 -top-3 lg:top-1/2 -translate-1/2 whitespace-nowrap flex justify-center items-center gap-2 w-fit">
               <div className="flex gap-1 items-center">
                 <Calendar className="size-4 mb-0.5" />
                 <p>Mon - Sun</p>
@@ -100,16 +108,6 @@ const Hero = () => {
                 <p>9:00 - 17:00</p>
               </div>
             </div>
-
-            {/* Phone */}
-            <Link
-              href="tel:02081172803"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-end"
-            >
-              <LinkEffect icon={Phone}>0208 117 2803</LinkEffect>
-            </Link>
           </aside>
 
           {/* top right links */}
