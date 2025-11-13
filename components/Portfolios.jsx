@@ -7,117 +7,14 @@ import React, { useState } from "react";
 import Button from "./ui/Button";
 import { ChevronRight } from "lucide-react";
 import { ChevronLeft } from "lucide-react";
-
-// Dummy data grouped by class
-const classes = [
-  {
-    id: "class1",
-    name: "Class 1",
-    students: [
-      {
-        id: 1,
-        name: "Student 1",
-        course: "Maths",
-        portfolio: "Portfolio detail for Student 1",
-        image: "/p1.webp",
-      },
-      {
-        id: 2,
-        name: "Student 2",
-        course: "English",
-        portfolio: "Portfolio detail for Student 2",
-        image: "/p2.webp",
-      },
-      {
-        id: 3,
-        name: "Student 3",
-        course: "Maths",
-        portfolio: "Portfolio detail for Student 3",
-        image: "/p3.webp",
-      },
-      {
-        id: 4,
-        name: "Student 4",
-        course: "Maths",
-        portfolio: "Portfolio detail for Student 4",
-        image: "/p1.webp",
-      },
-      {
-        id: 5,
-        name: "Student 5",
-        course: "English",
-        portfolio: "Portfolio detail for Student 5",
-        image: "/p2.webp",
-      },
-      {
-        id: 6,
-        name: "Student 6",
-        course: "Maths",
-        portfolio: "Portfolio detail for Student 6",
-        image: "/p3.webp",
-      },
-      {
-        id: 7,
-        name: "Student 7",
-        course: "English",
-        portfolio: "Portfolio detail for Student 7",
-        image: "/p1.webp",
-      },
-      {
-        id: 8,
-        name: "Student 8",
-        course: "Maths",
-        portfolio: "Portfolio detail for Student 8",
-        image: "/p2.webp",
-      },
-      {
-        id: 9,
-        name: "Student 9",
-        course: "English",
-        portfolio: "Portfolio detail for Student 9",
-        image: "/p3.webp",
-      },
-      {
-        id: 10,
-        name: "Student 10",
-        course: "Maths",
-        portfolio: "Portfolio detail for Student 10",
-        image: "/p1.webp",
-      },
-      {
-        id: 11,
-        name: "Student 11",
-        course: "English",
-        portfolio: "Portfolio detail for Student 11",
-        image: "/p2.webp",
-      },
-      {
-        id: 12,
-        name: "Student 12",
-        course: "Maths",
-        portfolio: "Portfolio detail for Student 12",
-        image: "/p3.webp",
-      },
-    ],
-  },
-  {
-    id: "class2",
-    name: "Class 2",
-    students: [],
-  },
-  {
-    id: "class3",
-    name: "Class 3",
-    students: [],
-  },
-];
+import portfoliosData from "@/constants/portfolios";
 
 const Portfolios = () => {
-  const [activeClass, setActiveClass] = useState(classes[0].id);
+  const [activeClass, setActiveClass] = useState(portfoliosData[0].id);
   const [currentPage, setCurrentPage] = useState(1);
 
   const studentsPerPage = 10;
-  const currentClass = classes.find((cls) => cls.id === activeClass);
+  const currentClass = portfoliosData.find((cls) => cls.id === activeClass);
 
   const totalPages = Math.ceil(
     (currentClass?.students?.length || 0) / studentsPerPage
@@ -135,7 +32,7 @@ const Portfolios = () => {
   };
 
   return (
-    <section className="bg-sec/5 p-sec">
+    <section id="portfolios" data-lenis-scroll-to className="bg-sec/5 p-sec">
       <div className="flex flex-col items-center justify-center gap-4 text-center">
         <h1 className="font-bebas h1">Our Students Portfolios</h1>
         <h4 className="leading-normal h4">
@@ -147,7 +44,7 @@ const Portfolios = () => {
 
       {/* Class Tabs */}
       <div className="mt-10 flex flex-wrap justify-center">
-        {classes.map((cls) => (
+        {portfoliosData.map((cls) => (
           <button
             key={cls.id}
             className={`hover:bg-sec/10 border-b-2 rounded-t-lg rounded-b-[1px] text-xs px-5 py-1 font-medium transition-all duration-200 ${

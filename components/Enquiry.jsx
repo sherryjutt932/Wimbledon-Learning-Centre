@@ -1,25 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import Button from "./ui/Button";
-import FormField from "./ui/FormField";
-import { Send } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Clock, ChevronDown } from "lucide-react";
-import ZohoForm from "./ui/EnquiryForm";
+import ZohoEnquiryForm from "./ui/ZohoEnquiryForm";
+import schedule from "@/constants/schedule";
 
 const OpeningHours = () => {
   const [expanded, setExpanded] = useState(true);
-
-  const schedule = [
-    { day: "Mon", hours: "13:00 - 19:00" },
-    { day: "Tue", hours: "16:00 - 20:00" },
-    { day: "Wed", hours: "16:00 - 20:00" },
-    { day: "Thu", hours: "13:00 - 19:00" },
-    { day: "Fri", hours: "16:00 - 20:00" },
-    { day: "Sat", hours: "13:00 - 20:00" },
-    { day: "Sun", hours: "09:00 - 14:00" },
-  ];
 
   const todayIndex = new Date().getDay(); // 0 = Sunday, 1 = Monday, etc.
   const today = todayIndex === 0 ? 6 : todayIndex - 1; // adjust so Mon=0
@@ -82,125 +70,12 @@ const OpeningHours = () => {
   );
 };
 
-const Form = () => {
-  // State to store form data
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    query: "",
-  });
-
-  // State to track form submission status
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  // Handle input change
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form Data:", formData);
-
-    setIsSubmitted(true);
-
-    // Reset form fields
-    setFormData({
-      fullName: "",
-      email: "",
-      query: "",
-    });
-
-    // Hide success message after a few seconds
-    setTimeout(() => setIsSubmitted(false), 5000);
-  };
-
-  return (
-    <section className="lg:maxWSec flex-1 px-6 py-6 flex flex-col gap-8">
-      <div className="text-center">
-        <h4 className="leading-normal h4">Contact us!</h4>
-        <p className="text-gray-600 text-sm">if you need more information</p>
-      </div>
-
-      <form
-        onSubmit={handleSubmit}
-        className="relative grid gap-x-2 gap-y-4  grid-cols-1 sm:grid-cols-2"
-      >
-        {/* Success message */}
-        {isSubmitted && (
-          <motion.div
-            className="absolute z-[1000] inset-[-5px] bg-white p-6 flex items-center justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4 }}
-          >
-            <div className="bg-green-100 text-green-800 text-center px-4 py-12 rounded-md shadow-md text-sm">
-              Your form has been submitted successfully. <br />
-              We'll get back to you soon!
-            </div>
-          </motion.div>
-        )}
-
-        {/* Full Name */}
-        <FormField
-          label="Full Name"
-          name="fullName"
-          placeholder="e.g. John Doe"
-          value={formData.fullName}
-          onChange={handleChange}
-          required
-        />
-
-        {/* Email */}
-        <FormField
-          label="Email"
-          name="email"
-          placeholder="e.g. johndoe@example.com"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-
-        {/* Query */}
-        <div className="col-span-full">
-          <FormField
-            label="Your Query"
-            name="query"
-            placeholder="Write your message here..."
-            textarea
-            value={formData.query}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        {/* Submit Button */}
-        <div className="col-span-full text-center">
-          <Button
-            size="s"
-            variant="primary"
-            icon={Send}
-            className="ring ring-black/30"
-            type="submit"
-          >
-            Submit
-          </Button>
-        </div>
-      </form>
-    </section>
-  );
-};
 
 const Enquiry = () => {
   return (
     <>
       {/* <ZohoForm /> */}
-      <section className="p-sec sm:!pt-0">
+      <section id="enquiry"  data-lenis-scroll-to className="p-sec sm:!pt-0">
         <div className="maxWSec mx-auto ">
           <h2 className="font-bebas h2 sm:mb-8 text-center">
             Have an <span className="text-main">Enquiry?</span>
@@ -231,7 +106,7 @@ const Enquiry = () => {
             </div>
 
             {/* Form */}
-            <Form />
+            <ZohoEnquiryForm />
           </div>
         </div>
       </section>

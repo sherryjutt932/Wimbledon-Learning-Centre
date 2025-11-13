@@ -10,6 +10,8 @@ import { Mail } from "lucide-react";
 import { Calendar } from "lucide-react";
 import { Facebook, Twitter, Instagram } from "lucide-react";
 import { Highlighter } from "./ui/highlighter";
+import socials from "@/constants/socials";
+import contacts from "@/constants/contacts";
 
 const Hero = () => {
   return (
@@ -26,7 +28,9 @@ const Hero = () => {
         />
         <div className="bg-gradient-to-t from-black to-black/0 absolute z-[3] bottom-0 left-0 h-[30%] w-full opacity-50 rounded-b-2xl"></div>
         <section className="relative bg-black/30 z-10 flex-1 flex flex-col items-center justify-center rounded-2xl">
-          <div className="w-28 absolute left-0 top-0 rounded-br-2xl bg-background pr-2 pb-2">
+          <Link
+            href={"/"}
+            className="w-28 absolute left-0 top-0 rounded-br-2xl bg-background pr-2 pb-2">
             <Image
               aria-hidden
               src="/logo.png"
@@ -38,7 +42,7 @@ const Hero = () => {
 
             <div className="z-[-1] rotate-180 absolute top-0 left-full h-6 sm:h-12 aspect-square rounded-br-2xl sm:shadow-[1.5rem_1.5rem_0_0_#fff] shadow-[0.5rem_0.5rem_0_0_#fff] bg-transparent"></div>
             <div className="z-[-1] rotate-180 absolute top-full left-0 h-6 sm:h-12 aspect-square rounded-br-2xl sm:shadow-[1.5rem_1.5rem_0_0_#fff] shadow-[0.5rem_0.5rem_0_0_#fff] bg-transparent"></div>
-          </div>
+          </Link>
 
           <main className=" text-white flex flex-col items-center justify-center gap-4">
             <h1 className="font-bebas h1 text-center">
@@ -64,37 +68,40 @@ const Hero = () => {
               <br />
               Maths and English Experts.
             </h4>
-            <Button
-              size="s"
-              variant="primary"
-              icon={ArrowRight}
-              className="shadow-lg"
-            >
-              Register Now
-            </Button>
+            <a href="#register" data-lenis-scroll-to>
+              <Button
+                size="s"
+                variant="primary"
+                icon={ArrowRight}
+                className="shadow-lg"
+              >
+                Register Now
+              </Button>
+            </a>
+
           </main>
 
           {/* bottom links */}
           <aside className="text-xs lg:text-sm text-gray-400 absolute bottom-0 left-0 right-0 flex items-center justify-between px-6 md:px-4 py-1 max-md:flex-col-reverse md:flex-wrap">
             {/* Email */}
-            <Link
-              href="mailto:hello@wimbledonlearningcentre.com"
+            <a
+              href={`mailto:${contacts.email}`}
               target="_blank"
               rel="noopener noreferrer"
             >
               <LinkEffect icon={Mail}>
-                hello@wimbledonlearningcentre.com
+                {contacts.email}
               </LinkEffect>
-            </Link>
+            </a>
 
             {/* Phone */}
-            <Link
-              href="tel:02081172803"
+            <a
+              href={`tel:${contacts.phone}`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <LinkEffect icon={Phone}>0208 117 2803</LinkEffect>
-            </Link>
+              <LinkEffect icon={Phone}>{contacts.phone}</LinkEffect>
+            </a>
 
             {/* Open Hours */}
             <div className="absolute left-1/2 -top-3 lg:top-1/2 -translate-1/2 whitespace-nowrap flex justify-center items-center gap-2 w-fit">
@@ -112,24 +119,27 @@ const Hero = () => {
 
           {/* top right links */}
           <aside className="absolute top-0 right-0 flex gap-2 p-2.5">
-            <Button
+            <Link href={socials.facebook || ""} target={"_blank"} rel={"noopener noreferrer"}> <Button
               size="s"
               variant="icon"
               icon={Facebook}
               className="shadow-lg"
-            />
-            <Button
-              size="s"
-              variant="icon"
-              icon={Instagram}
-              className="shadow-lg"
-            />
-            <Button
-              size="s"
-              variant="icon"
-              icon={Twitter}
-              className="shadow-lg"
-            />
+            /></Link>
+            <Link href={socials.facebook || ""} target={"_blank"} rel={"noopener noreferrer"}>
+              <Button
+                size="s"
+                variant="icon"
+                icon={Instagram}
+                className="shadow-lg"
+              /></Link>
+            <Link href={socials.facebook || ""} target={"_blank"} rel={"noopener noreferrer"}>
+              <Button
+                size="s"
+                variant="icon"
+                icon={Twitter}
+                className="shadow-lg"
+              />
+            </Link>
           </aside>
         </section>
       </div>

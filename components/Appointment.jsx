@@ -2,7 +2,7 @@ import React from "react";
 
 const Appointment = () => {
   return (
-    <section className="p-sec">
+    <section id="register" data-lenis-scroll-to className="p-sec">
       <div className="maxWSec mx-auto relative">
         <iframe
           width="100%"

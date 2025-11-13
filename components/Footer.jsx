@@ -4,61 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import LinkEffect from "./ui/LinkEffect";
 import { Facebook, Twitter, Instagram } from "lucide-react";
-import { Phone } from "lucide-react";
-import { Mail } from "lucide-react";
+
 import Button from "./ui/Button";
+import FooterLinks from "@/constants/footer";
+import socials from "@/constants/socials";
 
 const Footer = () => {
-  const Links = [
-    {
-      title: "Wimbledon Learning Centre",
-      content: [
-        {
-          title: "hello@wimbledonlearningcentre.com",
-          src: "mailto:hello@wimbledonlearningcentre.com",
-          blank: true,
-          icon: Mail,
-        },
-        {
-          title: "0208 117 2803",
-          src: "tel:02081172803",
-          blank: true,
-          icon: Phone,
-        },
-      ],
-    },
-    {
-      title: "About",
-      content: [
-        {
-          title: "Why Us",
-          src: "#why-us",
-        },
-        {
-          title: "Enquiry",
-          src: "#enquiry",
-        },
-        {
-          title: "Portfolios",
-          src: "#portfolios",
-        },
-      ],
-    },
-    {
-      title: "Other",
-      content: [
-        {
-          title: "Matts App",
-          src: "#matts-app",
-        },
-        {
-          title: "Ressources",
-          src: "/ressources",
-        },
-      ],
-    },
-  ];
-
   return (
     <footer className="w-full relative overflow-hidden">
       <div className="bg-[#111] text-white w-full">
@@ -74,15 +25,14 @@ const Footer = () => {
             />
           </Link>
           <div className="flex-1 flex max-sm:flex-col flex-grow gap-8 whitespace-nowrap w-fit">
-            {Links.map((item, index) => {
+            {FooterLinks.map((item, index) => {
               return (
                 <div
                   key={index}
-                  className={`flex-1 flex justify-center text-base ${
-                    index === 0
-                      ? "mr-auto w-fit grow-0"
-                      : "w-full max-w-[10rem] grow"
-                  }`}
+                  className={`flex-1 flex justify-center text-base ${index === 0
+                    ? "mr-auto w-fit grow-0"
+                    : "w-full max-w-[10rem] grow"
+                    }`}
                 >
                   <div className="flex sm:flex-col items-start flex-wrap text-sm sm:text-base text-gray">
                     <h5 className="text-white w-full font-medium tracking-wide text-xl mb-1">
@@ -90,7 +40,8 @@ const Footer = () => {
                     </h5>
                     {item.content.map((subItem, subIndex) => {
                       return (
-                        <Link
+                        <a
+                          data-lenis-scroll-to
                           key={subIndex}
                           href={subItem.src}
                           target={item.blank ? "_blank" : "_self"}
@@ -99,7 +50,7 @@ const Footer = () => {
                           <LinkEffect icon={subItem.icon} className="px-0!">
                             {subItem.title}
                           </LinkEffect>
-                        </Link>
+                        </a>
                       );
                     })}
                   </div>
@@ -115,7 +66,7 @@ const Footer = () => {
             </div>
 
             <div className="max-md:py-2 flex gap-2 sm:gap-4 items-center text-xl text-black">
-              <Link href={""} target={"_blank"} rel={"noopener noreferrer"}>
+              <Link href={socials.facebook || ""} target={"_blank"} rel={"noopener noreferrer"}>
                 <Button
                   size="m"
                   variant="icon"
@@ -123,7 +74,7 @@ const Footer = () => {
                   className="shadow-lg"
                 />
               </Link>
-              <Link href={""} target={"_blank"} rel={"noopener noreferrer"}>
+              <Link href={socials.instagram || ""} target={"_blank"} rel={"noopener noreferrer"}>
                 <Button
                   size="m"
                   variant="icon"
@@ -131,7 +82,7 @@ const Footer = () => {
                   className="shadow-lg"
                 />
               </Link>
-              <Link href={""} target={"_blank"} rel={"noopener noreferrer"}>
+              <Link href={socials.twitter || ""} target={"_blank"} rel={"noopener noreferrer"}>
                 <Button
                   size="m"
                   variant="icon"

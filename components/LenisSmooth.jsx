@@ -19,6 +19,21 @@ const LenisSmooth = () => {
     const lenis = new Lenis();
     lenisRef.current = lenis;
 
+    // Enable smooth anchor scrolling
+    document.querySelectorAll("[data-lenis-scroll-to]").forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute("href"));
+        if (target) {
+          lenis.scrollTo(target, {
+            duration: 1,
+            offset: 0,
+          });
+        }
+      });
+    });
+
+
     lenis.on("scroll", ScrollTrigger.update);
     gsap.ticker.add((time) => {
       lenis.raf(time * 800);

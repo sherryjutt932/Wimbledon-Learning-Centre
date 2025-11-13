@@ -7,7 +7,7 @@ import { ArrowUpRight } from "lucide-react";
 
 const Mattsapp = () => {
   return (
-    <section className="p-sec">
+    <section id="mattsapp" data-lenis-scroll-to className="p-sec">
       <div className="maxWSec mx-auto bg-black relative rounded-4xl overflow-hidden">
         <Image
           aria-hidden
