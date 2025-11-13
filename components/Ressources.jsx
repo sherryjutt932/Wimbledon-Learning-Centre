@@ -1,4 +1,3 @@
-"use client";
 import ZohoWebform from "./ui/ZohoWebform";
 
 const Ressources = () => {
